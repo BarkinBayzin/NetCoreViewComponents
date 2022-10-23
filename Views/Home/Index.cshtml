@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@*<p>
+    View Components iki farklı şekilde tetiklenebilir. Tag helper gibi yada @Component gibi
+</p>*@
+
+@await Component.InvokeAsync("Comment")
+
+@*Not: VC Tag Helper gibi kullanmak için viewimports daki gibi tag helpersa ViewComponents klasörünü tanıtırız.*@
+
+<vc:comment></vc:comment>

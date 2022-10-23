@@ -1,0 +1,20 @@
+﻿
+
+-- ViewComponent Kullanımı
+
+ViewComponent yapısını web sitemizde sayfalarda benzer işlermleri gerçekleştireceksek tekrar aynı kodlar yazmak yerine kullanabilir.
+Bu noktada kullanım amacı olarak partial view'a benzer.
+Ancak Net Core MVC tarafında partial view yapısına alternatif olarak ViewComponent yapılıar server tarafa daha az yük bindirdiği için tercih edilir.(.Net Core MVC tarafında Partial View yapısının kullanımı devam etmektedir.) 
+Yani herhangi bir server işleminde Controller ile iletişim kurmak zorunda değildir.
+Controller'a ihtiyaç duymaksızın işlemini gerçekleştirilebilir.
+Buda Partial viewlere göre avantaj sağlamktadır.
+
+-- Uygulama Aşamaları
+
+1-) Uygulamada Models klasörürün içerisinde CommentViewModel oluşturuldu.
+2-) ViewComponents isminde klasör açıldı. İçerisinde CommentViewComponent oluşturuldu.
+3-) Shared klasörürün altında => Components klasörünün içine => Comment klasörünün içerisine Default.cshtml viewi oluşturldu. (Not: ViewComponent çağırıldığında Default.cshtml dosyasını arar.)
+4-) HomeControllerin Index Actionında @await Component.InvokeAsync("Comment"); şeklinde ViewComponentimizi çağırıp, kullandık.
+5-) Oluşturduğumuz ViewComponent'ı, ViewImports klasörü altına eklediğimiz gibi yazmazsanız, projenin içerisinde kullanabilmeniz pek mümkün olmayacaktır.
+
+Not: Uygulamada tasarım için wwwroot klasöründe comment.css oluşturuldu.
